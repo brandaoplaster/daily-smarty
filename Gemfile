@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'webpacker', '~> 4.0'
 
 gem 'devise', '~> 4.7'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
