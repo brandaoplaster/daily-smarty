@@ -5,6 +5,14 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def new
+    @topic = Topic.new
+  end
+
+  def create
+    @topic = Topic.new
+  end
+
   def show
   end
 

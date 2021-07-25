@@ -40,4 +40,21 @@ describe 'navigate' do
       expect(current_path).to have_content('ruby')
     end
   end
+
+  describe 'form' do
+    it 'can be reached successfully when navigating to the /new path' do
+      visit new_topic_path
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'allows users to create a new topic from the /new page' do
+      visit new_topic_path
+
+      fill_in 'topic[title]', with: "Elixir"
+
+      click_on "Save"
+
+      expect(page).to have_content("Elixir")
+    end
+  end
 end
