@@ -33,11 +33,11 @@ describe 'navigate' do
     end
 
     it 'should display the topic title' do
-      expect(page).to have_css('h1', text: 'Sports')
+      expect(page).to have_css('h1', text: 'Ruby')
     end
 
     it 'should have a url that matches the custom url slug' do
-      expect(current_path).to have_content('sports')
+      expect(current_path).to have_content('ruby')
     end
   end
 end
