@@ -56,5 +56,15 @@ describe "navigate" do
 
       expect(page).to have_content("Elixir")
     end
+
+    it "allows users to update a na existing topic from the /edit page" do
+      visit edit_topic_path(@topic)
+
+      fill_in "topic[title]", with: "Elixir"
+
+      click_on "Save"
+
+      expect(page).to have_content("Elixir")
+    end
   end
 end

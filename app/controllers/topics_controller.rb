@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show]
+  before_action :set_topic, only: [:show, :edit, :update]
 
   def index
     @topics = Topic.all
@@ -20,6 +20,14 @@ class TopicsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    @topic.update(params.require(:topic).permit(:title))
+    redirect_to topic_path(@topic)
   end
 
   private
