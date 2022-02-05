@@ -10,7 +10,13 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new
+    @topic = Topic.new(params.require(:topic).permit(:title))
+
+    if @topic.save
+      redirect_to topic_path(@topic), notice: "Topic was successfully created."
+    else
+      render :new
+    end
   end
 
   def show
