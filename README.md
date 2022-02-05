@@ -19,6 +19,11 @@ default: &default
 
 ### next steps
 
+- Up **postgreSQL** with docker
+```
+docker-compose up -d
+```
+
 -
 ```
 bundle install
