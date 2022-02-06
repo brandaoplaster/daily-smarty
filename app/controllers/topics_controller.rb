@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params.require(:topic).permit(:title))
+    @topic = Topic.new(topic_params)
 
     if @topic.save
       redirect_to topic_path(@topic), notice: "Topic was successfully created."
@@ -26,11 +26,18 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic.update(params.require(:topic).permit(:title))
-    redirect_to topic_path(@topic)
+    if @topic.update(topic_params)
+      redirect_to topic_path(@topic), notice: "You topic was successfully."
+    else
+      render :edit, notice: "There was an error progressing your request."
+    end
   end
 
   private
+
+  def topic_params
+    params.require(:topic).permit(:title)
+  end
 
   def set_topic
     @topic = Topic.friendly.find(params[:id])
